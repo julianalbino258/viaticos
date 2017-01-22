@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Menú Principal</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="Cliente/Lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="Cliente/Lib/bootstrap/dist/css/collapsible-menu.css" rel="stylesheet">
+    
+    <!-- Angular Libraries -->    
+    <script src="Cliente/Lib/angular/angular.js"></script>
+    <script src="Cliente/Lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- jQuery -->
+    <script src="Cliente/Lib/jquery/dist/jquery.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body ng-app="GENSA.MGGV.App">
+    <div class="container">
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <div ui-view="menu"></div>
+            
+            
+            <!-- Página de contenido-->
+            <div ui-view="currentview"></div>    
+            
+        </div>
+            <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- App Components -->      
+    <script src="Cliente/App/app.module.js"></script>
+    <script src="Cliente/App/app.config.js"></script>
+    <script src="Cliente/App/app.run.js"></script>
+
+    <script src="Cliente/App/Controllers/parametrosController.js"></script>
+    <script src="Cliente/App/Controllers/conceptoGastoController.js"></script>
+    <script src="Cliente/App/Controllers/indFinancierosController.js"></script>
+    <script src="Cliente/App/Controllers/paramViaticosInterController.js"></script>
+    <script src="Cliente/App/Controllers/tipoComisionController.js"></script>
+    <script src="Cliente/App/Controllers/tramitesController.js"></script>
+    <script src="Cliente/App/Controllers/SolicitudViajeController.js"></script>
+    <script src="Cliente/App/Controllers/legalizacionController.js"></script>
+    <script src="Cliente/App/Controllers/aprobacionesController.js"></script>
+    <script src="Cliente/App/Controllers/informesController.js"></script>    
+    <script src="Cliente/App/Controllers/histSolicitudesController.js"></script>
+    <script src="Cliente/App/Controllers/tablaInternacionalController.js"></script>
+    <script src="Cliente/App/Controllers/tablaViaticosController.js"></script>
+    <script src="Cliente/App/Controllers/paramViaticosGeneralController.js"></script>
+    
+
+    <!-- App Configuration -->
+    <script src="Cliente/App/Services/ConfiguracionGlobalFactory.js"></script>
+    <script src="Cliente/App/Services/ConfiguracionGlobalModel.js"></script>
+    <script src="Cliente/App/Services/NavegacionFactory.js"></script>
+
+    <!-- GENSA.MGGV.Blocks.Utils -->
+    <script src="Cliente/Blocks/Utils/module.js"></script>
+    <script src="Cliente/Blocks/Utils/constants.js"></script>
+    <script src="Cliente/Blocks/Utils/Servicios/ResultActionsModel.js"></script>
+
+    <!-- GENSA.MGGV.Parametros -->
+    <script src="Cliente/Parametros/module.js"></script>
+    <script src="Cliente/Parametros/Servicios/ParametroViaticoModel.js"></script>
+    <script src="Cliente/Parametros/Servicios/ParametroViaticoInternacionalModel.js"></script>
+    <script src="Cliente/Parametros/Servicios/ParametroViaticoGeneralModel.js"></script>
+
+    <!-- GENSA.MGGV.Tramites -->
+    <script src="Cliente/Tramites/module.js"></script>
+    <script src="Cliente/Tramites/Servicios/SolicitudViajeModel.js"></script>
+    <script src="Cliente/Tramites/Servicios/LegalizacionViaticoModel.js"></script>
+    
+    
+    <!-- Components -->
+    <script src="Cliente/App/Components/parametro-viaticos.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="Cliente/Lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
