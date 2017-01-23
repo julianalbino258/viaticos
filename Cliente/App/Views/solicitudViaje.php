@@ -133,6 +133,9 @@
                   </div>
                 </div>
               </div>
+
+              <button ng-click="vm.ObtenerFuncionario()">Obtener</button>
+
               <ol class="breadcrumb">3. INFORMACIÓN DEL VIAJE.</ol>
               <div class="form-group">
                 <div class="row">
@@ -368,7 +371,7 @@
                       </div>                       
                     </div>
                     <div class="btn-group">
-                      <button type="button" class="btn btn-primary" ng-click="vm.Save()">Guardar</button>                      
+                      <button type="button" class="btn btn-primary" ng-click="vm.GuardadSolicitudViaje()">Guardar</button>                      
                       <button type="button" class="btn btn-success">Enviar</button>
                       <button type="button" class="btn btn-danger">Cancelar</button>
                     </div>

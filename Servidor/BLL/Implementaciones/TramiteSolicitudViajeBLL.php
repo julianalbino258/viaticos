@@ -6,6 +6,7 @@
 
 	class TramiteSolicitudViajeBLL implements ITramiteBLL
 	{
+		// Métodos Públicos
 	    public function GuardarTramite($tramiteSolicitudViajeDTO)
 	    {
 	    	$_tramiteSolicitudViajeDAL = new TramiteSolicitudViajeDAL();
@@ -33,6 +34,25 @@
 	    {
 			
 	    }
+
+		public function ObtenerFuncionario($tramiteDTO)
+		{
+			$_tramiteSolicitudViajeDAL = new TramiteSolicitudViajeDAL();
+	    	$responseDTO = new ResponseDTO();
+
+	    	try 
+	    	{
+	    		$responseDTO = $_tramiteSolicitudViajeDAL->ObtenerFuncionario($tramiteDTO);
+	    	} 
+	    	catch (Exception $e) 
+	    	{
+	    		$responseDTO->SetStackTraceMessageError("Ocurrió un problema durante el guardado de los datos", $e->getMessage());
+	    	}
+
+			return $responseDTO;
+		}
+
+		//Métodos Privados
 	    
 	    private function ValidarTramiteSolicitudViaje($tramiteSolicitudViajeDTO)
 	    {

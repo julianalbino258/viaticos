@@ -29,6 +29,11 @@
 			return $responseDTO;
 	    }
 
+		public function ObtenerFuncionario($tramiteDTO)
+		{
+			
+		}
+
 	    public function ListarTramite()
 	    {
 			

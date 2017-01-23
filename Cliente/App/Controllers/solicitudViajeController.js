@@ -18,9 +18,13 @@
 
 		vm.ConfiguracionGlobalFactory = ConfiguracionGlobalFactory;
 
-		vm.Save = Save;
+		vm.GuardadSolicitudViaje = GuardadSolicitudViaje;
+		vm.ObtenerFuncionario = ObtenerFuncionario;
 
-		function Save () {
+		//Métodos Públicos
+
+		function GuardadSolicitudViaje() 
+		{
 			vm.ConfiguracionGlobalFactory.ConfiguracionGlobalModel.SolicitudViajeModel.GuardarTipoComponente(UtilsConstants.EnumTipoTramite.SOL_VIAJE_ANTICIPO).then(
 				function (resultActionsModel){
 
@@ -39,7 +43,29 @@
 				}
 			);
 		}
-	}
-	
 
+		function ObtenerFuncionario()
+		{
+			vm.ConfiguracionGlobalFactory.ConfiguracionGlobalModel.SolicitudViajeModel.ObtenerFuncionario(UtilsConstants.EnumTipoTramite.SOL_VIAJE_ANTICIPO).then(
+				function (resultActionsModel)
+				{
+					if(resultActionsModel.HasError)
+					{
+						alert(resultActionsModel.Message);
+						console.log(resultActionsModel.StackTraceMessage);
+						return;
+					}
+
+					console.log(resultActionsModel);
+				},
+				function (error){
+					alert('Error');
+					console.log(error);
+				}
+			);
+		}
+
+		// Métodos Privados
+
+	}
 })();

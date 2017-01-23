@@ -35,7 +35,8 @@
 						Costos: null,
 						FechaDil: new Date(),
 						Email: null,
-						Celular: null,						
+						Celular: null,
+						Categoria: null,					
 
 						/*Valores Registrados por el usuario*/
 
@@ -55,45 +56,46 @@
 						Monto: null,
 
 						GuardarTipoComponente: GuardarTipoComponente,
+						ObtenerFuncionario: ObtenerFuncionario,
 						ListarTipoComponente: ListarTipoComponente,
 						ValidarTipoComponente: ValidarTipoComponente
 
 					}, dataDTO);
 
+					//Métodos Públicos
+
 					function GuardarTipoComponente(enumTipoComponente)
 					{
-						var deferred = $q.defer();
-						var resultActionsModel = new ResultActionsModel();
-
-						try
+						var requestDTO = 
 						{
-							var requestDTO = 
-							{
-								EnumTipoComponente: enumTipoComponente,
-								ComponenteActual: this
-							};
+							url: UtilsConstants.URLS.GuardarTramiteURL,
+							method: 'POST',
+							data: angular.toJson(
+								{
+									EnumTipoComponente: enumTipoComponente,
+									ComponenteActual: this
+								}
+							)
+						};
 
-							$http
-								.post(UtilsConstants.URLS.GuardarTramiteURL, 
-									angular.toJson(requestDTO))
-									.success(
-										function(data){
-											deferred.resolve(new ResultActionsModel(data));
-										}
-									)
-									.error(
-										function(error){
-											deferred.reject(new ResultActionsModel(error));
-										}
-									);
-						}	
-						catch (e)
+						return EjecutarPeticionHttp(requestDTO);
+					}
+
+					function ObtenerFuncionario(enumTipoComponente)
+					{
+						var requestDTO = 
 						{
-							resultActionsModel.SetStackTraceMessageError("Ha ocurrido un error durante el guardado de los datos", e.toString());
-							deferred.reject(resultActionsModel);
-						}	
+							url: UtilsConstants.URLS.ObtenerItemURL,
+							method: 'POST',
+							data: angular.toJson(
+								{
+									EnumTipoComponente: enumTipoComponente,
+									ComponenteActual: this
+								}
+							)
+						};
 
-						return deferred.promise;	
+						return EjecutarPeticionHttp(requestDTO);
 					}
 
 					function ListarTipoComponente(enumTipoComponente)
@@ -101,7 +103,7 @@
 
 					}
 
-					function ValidarTipoComponente () 
+					function ValidarTipoComponente() 
 					{
 						if(_self.Cedula === null ||
 						   _self.Cedula === undefined)
@@ -214,6 +216,27 @@
 							resultActionsModel.SetMessageError("El Campo CDP no puede ser vacío");
 							return resultActionsModel;
 						}
+					}
+
+					//Métodos Privados
+
+					function EjecutarPeticionHttp(requestParams)
+					{
+						var deferred = $q.defer();
+
+						$http(requestParams)
+							.success(
+								function(data){
+									deferred.resolve(new ResultActionsModel(data));
+								}
+							)
+							.error(
+								function(error){
+									deferred.reject(new ResultActionsModel(error));
+								}
+							);
+
+						return deferred.promise;
 					}
 
 				};

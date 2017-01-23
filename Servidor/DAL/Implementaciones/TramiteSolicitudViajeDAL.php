@@ -11,6 +11,67 @@
 	    	return $this->SaveData($tramiteSolicitudViajeDTO);
 	    }
 
+		public function ObtenerFuncionario($tramiteSolicitudViajeDTO)
+		{
+			$responseDTO = new ResponseDTO();
+	    	$dataBaseServices = new DataBaseServices();
+
+	    	try 
+	    	{
+	    		$responseDTO = $dataBaseServices->InitConnectionToDataBase();
+	    		if($responseDTO->Result == 0)
+	    		{
+	    			return $responseDTO;
+	    		}
+
+	    		$query = "SELECT * from funcionarios WHERE func_cedulas = :cedula_funcionario";
+				$q = $dataBaseServices->connection->prepare($query);
+				$q->execute(
+					array(':cedula_funcionario' => $tramiteSolicitudViajeDTO->Cedula)
+				);
+
+				$result = $q->fetchAll();	
+
+				if($result == null)
+                {
+                    $responseDTO->SetMessageError("El usuario no existe");
+                    return $responseDTO;
+                }
+
+                $itemsList = array();
+                while ($row = array_shift($result)) 
+                {
+                    $solicitudViajeDTO = new SolicitudViajeDTO();
+
+                    $solicitudViajeDTO->Cedula = $row['func_cedulas'];
+					$solicitudViajeDTO->Gerencia = $row['func_gerencias'];
+                    $solicitudViajeDTO->Nombre = $row['func_nombres'];
+                    $solicitudViajeDTO->Cargo = $row['func_cargos'];
+                    $solicitudViajeDTO->Celular = $row['func_celulares'];
+                    $solicitudViajeDTO->Email = $row['func_correos'];
+                    $solicitudViajeDTO->Categoria = $row['func_categorias'];
+
+                    array_push($itemsList, $solicitudViajeDTO);
+                }
+
+                if($itemsList == null)
+                {
+                    $responseDTO->SetMessageError("No se encontraron registros para mostrar");
+                    return $responseDTO;
+                } 
+
+				$responseDTO->ResultData = $itemsList;
+
+				$dataBaseServices->connection = null;	
+	    	} 
+	    	catch (Exception $e) 
+	    	{
+	    		$responseDTO->SetStackTraceMessageError("Ocurrió un problema durante el guardado de los datos", $e->getMessage());
+	    	}
+
+			return $responseDTO;
+		}
+
 	    public function ListarTramite()
 	    {
 			

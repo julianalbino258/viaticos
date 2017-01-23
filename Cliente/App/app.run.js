@@ -15,6 +15,7 @@
 		UtilsConstants.URLS.GuardarParametroURL = UtilsConstants.URLS.ServerRelativeURLPath + "GuardarParametro.php";
 		UtilsConstants.URLS.ListarParametroURL = UtilsConstants.URLS.ServerRelativeURLPath + "ListarParametro.php";
 		UtilsConstants.URLS.GuardarTramiteURL = UtilsConstants.URLS.ServerRelativeURLPath + "GuardarTramite.php";
+		UtilsConstants.URLS.ObtenerItemURL = UtilsConstants.URLS.ServerRelativeURLPath + "ObtenerItemPorCedula.php";
 		UtilsConstants.URLS.ListarTramiteURL = UtilsConstants.URLS.ServerRelativeURLPath + "ListarTramite.php";
 	}
 

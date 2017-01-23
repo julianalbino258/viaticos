@@ -10,8 +10,10 @@
 			
 			GuardarParametroURL: "",
 			ListarParametroURL: "",
+
 			GuardarTramiteURL: "",
-			ListarTramiteURL: ""
+			ListarTramiteURL: "",
+			ObtenerItemURL: ""
 		},
 
 		EnumResult: {
