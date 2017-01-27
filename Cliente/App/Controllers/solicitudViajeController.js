@@ -8,11 +8,13 @@
 
 	SolicitudViajeController.$inject = [ 
 		'GENSA.MGGV.Blocks.Utils.Constants',
-		'GENSA.MGGV.ConfiguracionGlobalFactory'
+		'GENSA.MGGV.ConfiguracionGlobalFactory',
+		'GENSA.MGGV.Tramites.SolicitudViajeModel'
 	];	
 
 	function SolicitudViajeController(UtilsConstants,
-									  ConfiguracionGlobalFactory)
+									  ConfiguracionGlobalFactory,
+									  SolicitudViajeModel)
 	{
 		var vm = this;
 
@@ -56,7 +58,7 @@
 						return;
 					}
 
-					console.log(resultActionsModel);
+					vm.ConfiguracionGlobalFactory.ConfiguracionGlobalModel.SolicitudViajeModel = new SolicitudViajeModel(resultActionsModel.ResultData[0]);
 				},
 				function (error){
 					alert('Error');
