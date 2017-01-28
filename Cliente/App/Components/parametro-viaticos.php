@@ -36,7 +36,7 @@
     </div>       
     <div class="btn-toolbar" role="toolbar">
       <div class="btn-group" role="group">         
-        <button type="button" class="btn btn-success" ng-click="$ctrl.Save()">Guardar</button> 
+        <button type="button" class="btn btn-success" ng-click="$ctrl.GuardarParametro()">Guardar</button> 
         <button type="button" class="btn btn-warning" ng-click="$ctrl.Clear()">Limpiar</button>
       </div>
     </div>

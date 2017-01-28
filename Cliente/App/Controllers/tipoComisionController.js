@@ -18,9 +18,9 @@
 
 		vm.ConfiguracionGlobalFactory = ConfiguracionGlobalFactory;
 
-		vm.Save = Save;
+		vm.GuardarParametro = GuardarParametro;
 
-		function Save () {
+		function GuardarParametro () {
 			
 			vm.ConfiguracionGlobalFactory.ConfiguracionGlobalModel.ParametroViaticoModel.GuardarTipoComponente(UtilsConstants.EnumTipoParametro.COMISION).then(
 				function(resultActionsModel){

@@ -21,10 +21,10 @@
 	{
 		var ctrl = this;
 
-		ctrl.Save = Save;
+		ctrl.GuardarParametro = GuardarParametro;
 		ctrl.Clear = Clear;
 
-		function Save()
+		function GuardarParametro()
 		{
 			var resultado =	ctrl.parametroViaticosDto.ValidarTipoComponente();
 			if(resultado.HasError)
