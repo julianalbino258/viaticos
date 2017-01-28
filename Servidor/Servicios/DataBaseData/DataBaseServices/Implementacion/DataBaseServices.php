@@ -4,7 +4,7 @@
 	{
 		public $connection = null;
 		private $_username = "root";
-		private $_password = "felipe0025";
+		private $_password = "isabel2005";
 
 		public function InitConnectionToDataBase()
 		{
